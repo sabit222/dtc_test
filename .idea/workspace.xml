@@ -4,14 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded6c2be-d0ce-41ec-a7de-521c47f1401a" name="Default Changelist" comment="Initial commit: Set up JWT authentication with User and Admin roles&quot;&#10;Initial commit: Set up JWT authentication with User and Admin roles&quot;">
-      <change afterPath="$PROJECT_DIR$/order_service/order_service.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/orderservice/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="ded6c2be-d0ce-41ec-a7de-521c47f1401a" name="Default Changelist" comment="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56ba6d30-5b33-406c-8dc0-a940031f0bdc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56ba6d30-5b33-406c-8dc0-a940031f0bdc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/order_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/order_service/order_service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/orderservice/OrderApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/orderservice/model/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/orderservice/model/OrderStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/orderservice/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/orderservice/repository/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/orderservice/repository/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/orderservice/services/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/target/classes/orderservice/OrderApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/RegisterReguest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/ApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/DataLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/JwtAuthentificationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/UserWebConf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/model/ERole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/repository/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/service/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/UserApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/UserApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationResponse$AuthenticationResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationResponse$AuthenticationResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/RegisterReguest$RegisterReguestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/RegisterReguest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/config/ApplicationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/DataLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/JwtAuthentificationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/config/JwtService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/config/SecurityConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/UserWebConf.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/model/ERole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/model/User$UserBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/repository/RoleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/repository/UserRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user_service/user_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/user_service.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +69,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,49 +81,66 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
   </component>
+  <component name="ProjectId" id="2rZDo4PfT8jEw6hu7CDjX8LN5lz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/order_service" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XML" />
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="userservice.config" />
+      <recent name="userservice.models" />
+      <recent name="orderservice.services" />
+      <recent name="orderservice.model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SabitRakhimov\dtc_testproject\order_service" />
+      <recent name="C:\Users\SabitRakhimov\dtc_testproject\order_service\src\main\java\orderservice\model" />
+      <recent name="C:\Users\SabitRakhimov\dtc_testproject\user_service\src\main\java\userservice" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="orderservice.model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="order_service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="orderservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="orderservice.OrderApplication" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,18 +148,54 @@
     <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="user_service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="userservice.UserApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.OrderApplication" />
-      </list>
-    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Building a microservice structure and creating order entities">
+      <created>1736522225138</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736522225138</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Building a microservice structure and creating order entities">
+      <created>1736522334338</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736522334338</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access.">
+      <created>1736658598649</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736658598649</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ded6c2be-d0ce-41ec-a7de-521c47f1401a" name="Default Changelist" comment="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access." />
+      <created>1736757878648</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736757878648</updated>
+      <workItem from="1736757881449" duration="3066000" />
+      <workItem from="1736830480329" duration="6618000" />
+      <workItem from="1736857546525" duration="2537000" />
+      <workItem from="1736937162872" duration="25142000" />
+      <workItem from="1737089408088" duration="17558000" />
+      <workItem from="1737361549828" duration="1074000" />
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -106,6 +208,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Building a microservice structure and creating order entities" />
+    <MESSAGE value="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

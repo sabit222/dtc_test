@@ -1393,7 +1393,7 @@ false posix/WET
 false posix/Zulu
 false posixrules
 </TimeZones>
-      <StartupTime>1736428293</StartupTime>
+      <StartupTime>1737110931</StartupTime>
     </root>
     <database id="2" parent="1" name="db_application">
       <ObjectId>16384</ObjectId>
@@ -1411,10 +1411,8 @@ false posixrules
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
       <Owner>sabacode</Owner>
-      <IntrospectionStateNumber>1501</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1572</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|24972|24973|1
-</Relations>
     </database>
     <database id="4" parent="1" name="postgres">
       <ObjectId>5</ObjectId>
@@ -1603,152 +1601,77 @@ false posixrules
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="38" parent="25" name="users_seq">
+    <sequence id="38" parent="25" name="_user_seq">
+      <ObjectId>33242</ObjectId>
+      <Owner>sabacode</Owner>
+      <StateNumber>1569</StateNumber>
+      <SequenceIdentity>null+50</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <sequence id="39" parent="25" name="token_seq">
+      <ObjectId>33243</ObjectId>
+      <Owner>sabacode</Owner>
+      <StateNumber>1570</StateNumber>
+      <SequenceIdentity>null+50</SequenceIdentity>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <sequence id="40" parent="25" name="users_seq">
       <ObjectId>24892</ObjectId>
       <Owner>sabacode</Owner>
       <StateNumber>1439</StateNumber>
       <SequenceIdentity>null+50</SequenceIdentity>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="39" parent="25" name="role_id_seq">
-      <ObjectId>24972</ObjectId>
+    <table id="41" parent="25" name="_user">
+      <ObjectId>33224</ObjectId>
       <Owner>sabacode</Owner>
-      <StateNumber>1494</StateNumber>
-      <DataType>integer|0s</DataType>
-    </sequence>
-    <table id="40" parent="25" name="role">
-      <ObjectId>24973</ObjectId>
-      <Owner>sabacode</Owner>
-      <StateNumber>1497</StateNumber>
+      <StateNumber>1571</StateNumber>
     </table>
-    <table id="41" parent="25" name="user_roles">
-      <ObjectId>24979</ObjectId>
+    <table id="42" parent="25" name="token">
+      <ObjectId>33232</ObjectId>
       <Owner>sabacode</Owner>
-      <StateNumber>1497</StateNumber>
+      <StateNumber>1571</StateNumber>
     </table>
-    <table id="42" parent="25" name="users">
-      <ObjectId>24984</ObjectId>
-      <Owner>sabacode</Owner>
-      <StateNumber>1498</StateNumber>
-    </table>
-    <column id="43" parent="40" name="id">
+    <column id="43" parent="41" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1494</StateNumber>
+      <StateNumber>1565</StateNumber>
       <TypeId>23</TypeId>
-      <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="44" parent="40" name="name">
+    <column id="44" parent="41" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1494</StateNumber>
+      <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="45" parent="40" name="role_pkey">
-      <ObjectId>24977</ObjectId>
-      <StateNumber>1494</StateNumber>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationIds>0</CollationIds>
-      <ClassIds>1978</ClassIds>
-    </index>
-    <key id="46" parent="40" name="role_pkey">
-      <ObjectId>24978</ObjectId>
-      <StateNumber>1494</StateNumber>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>role_pkey</UnderlyingIndexName>
-    </key>
-    <check id="47" parent="40" name="role_name_check">
-      <ObjectId>24976</ObjectId>
-      <StateNumber>1494</StateNumber>
-      <ColNames>name</ColNames>
-      <Predicate>(name)::text = ANY ((ARRAY[&apos;ROLE_USER&apos;::character varying, &apos;ROLE_ADMIN&apos;::character varying])::text[])</Predicate>
-    </check>
-    <column id="48" parent="41" name="user_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1495</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="49" parent="41" name="role_id">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1495</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="50" parent="41" name="user_roles_pkey">
-      <ObjectId>24982</ObjectId>
-      <StateNumber>1495</StateNumber>
-      <ColNames>user_id
-role_id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationIds>0,0</CollationIds>
-      <ClassIds>1978,1978</ClassIds>
-    </index>
-    <key id="51" parent="41" name="user_roles_pkey">
-      <ObjectId>24983</ObjectId>
-      <StateNumber>1495</StateNumber>
-      <ColNames>user_id
-role_id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>user_roles_pkey</UnderlyingIndexName>
-    </key>
-    <foreign-key id="52" parent="41" name="fkhfh9dx7w3ubf1co1vdev94g3f">
-      <ObjectId>24996</ObjectId>
-      <StateNumber>1498</StateNumber>
-      <ColNames>user_id</ColNames>
-      <RefTableId>24984</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>users</RefTableName>
-      <RefKeyName>users_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="53" parent="41" name="fkrhfovtciq1l558cw6udg0h0d3">
-      <ObjectId>24991</ObjectId>
-      <StateNumber>1497</StateNumber>
-      <ColNames>role_id</ColNames>
-      <RefTableId>24973</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>role</RefTableName>
-      <RefKeyName>role_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="54" parent="42" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1496</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="55" parent="42" name="email">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1496</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="56" parent="42" name="password">
+    <column id="45" parent="41" name="firstname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1496</StateNumber>
+      <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="57" parent="42" name="username">
+    <column id="46" parent="41" name="lastname">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1496</StateNumber>
+      <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="58" parent="42" name="users_pkey">
-      <ObjectId>24989</ObjectId>
-      <StateNumber>1496</StateNumber>
+    <column id="47" parent="41" name="password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1565</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="48" parent="41" name="role">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1565</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="49" parent="41" name="_user_pkey">
+      <ObjectId>33230</ObjectId>
+      <StateNumber>1565</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1756,12 +1679,106 @@ role_id</ColNames>
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="59" parent="42" name="users_pkey">
-      <ObjectId>24990</ObjectId>
-      <StateNumber>1496</StateNumber>
+    <key id="50" parent="41" name="_user_pkey">
+      <ObjectId>33231</ObjectId>
+      <StateNumber>1565</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>_user_pkey</UnderlyingIndexName>
     </key>
+    <check id="51" parent="41" name="_user_role_check">
+      <ObjectId>33227</ObjectId>
+      <StateNumber>1565</StateNumber>
+      <ColNames>role</ColNames>
+      <Predicate>(role)::text = ANY ((ARRAY[&apos;USER&apos;::character varying, &apos;ADMIN&apos;::character varying, &apos;MANAGER&apos;::character varying])::text[])</Predicate>
+    </check>
+    <column id="52" parent="42" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1566</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="53" parent="42" name="expired">
+      <Position>2</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1566</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="54" parent="42" name="revoked">
+      <Position>3</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1566</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="55" parent="42" name="token">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1566</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="56" parent="42" name="token_type">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1566</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="57" parent="42" name="user_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1566</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="58" parent="42" name="token_pkey">
+      <ObjectId>33238</ObjectId>
+      <StateNumber>1566</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <index id="59" parent="42" name="ukpddrhgwxnms2aceeku9s2ewy5">
+      <ObjectId>33240</ObjectId>
+      <StateNumber>1568</StateNumber>
+      <ColNames>token</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ClassIds>3126</ClassIds>
+    </index>
+    <key id="60" parent="42" name="token_pkey">
+      <ObjectId>33239</ObjectId>
+      <StateNumber>1566</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>token_pkey</UnderlyingIndexName>
+    </key>
+    <key id="61" parent="42" name="ukpddrhgwxnms2aceeku9s2ewy5">
+      <ObjectId>33241</ObjectId>
+      <StateNumber>1568</StateNumber>
+      <ColNames>token</ColNames>
+      <UnderlyingIndexName>ukpddrhgwxnms2aceeku9s2ewy5</UnderlyingIndexName>
+    </key>
+    <foreign-key id="62" parent="42" name="fkiblu4cjwvyntq3ugo31klp1c6">
+      <ObjectId>33244</ObjectId>
+      <StateNumber>1571</StateNumber>
+      <ColNames>user_id</ColNames>
+      <RefTableId>33224</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>_user</RefTableName>
+      <RefKeyName>_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <check id="63" parent="42" name="token_token_type_check">
+      <ObjectId>33235</ObjectId>
+      <StateNumber>1566</StateNumber>
+      <ColNames>token_type</ColNames>
+      <Predicate>(token_type)::text = &apos;BEARER&apos;::text</Predicate>
+    </check>
   </database-model>
 </dataSource>
