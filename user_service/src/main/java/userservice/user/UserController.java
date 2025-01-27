@@ -3,15 +3,12 @@ package userservice.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -24,5 +21,12 @@ public class UserController {
     ){
         service.changePassword(request, connectedUser);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/firstname/{firstname}")
+    public ResponseEntity<User> getUserByFirstname(@PathVariable String firstname) {
+        return service.getUserByFirstname(firstname)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new RuntimeException("User with name " + firstname + " not found"));
     }
 }

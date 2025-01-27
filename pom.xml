@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>user_service</module>
-        <module>order_service</module>
+        <module>ord_service</module>
 
     </modules>
 
