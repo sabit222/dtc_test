@@ -6,7 +6,9 @@ import io.jsonwebtoken.io.Decoders;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import order_service.dto.UserDTO;
+import order_service.log.LogService;
 import order_service.model.Order;
 import order_service.model.Status;
 import order_service.repository.OrderRepository;
@@ -28,55 +30,63 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrderService {
 
     private final OrderRepository orderRepository;
     private final RestTemplate restTemplate;
     private final HttpServletRequest request;
+    private final LogService logService;
 
     private static final String USER_SERVICE_URL = "http://localhost:8081/users";
 
     @Cacheable(value = "orders", key = "#status + #minPrice + #maxPrice")
     public List<Order> getOrders(Status status, BigDecimal minPrice, BigDecimal maxPrice) {
+        log.info("Fetching orders with status: {}, minPrice: {}, maxPrice: {}", status, minPrice, maxPrice);
+
         String jwtToken = getJwtToken();
         List<String> roles = getRolesFromToken(jwtToken);
 
-        // Только администратор может получить все заказы
         if (!roles.contains("ROLE_ADMIN")) {
+            log.warn("Access denied. User does not have ADMIN role.");
             throw new RuntimeException("Access denied. Only admins can view all orders.");
         }
 
-        if (status != null) {
-            return orderRepository.findOrdersByStatusAndPriceRange(status, minPrice, maxPrice);
-        } else {
-            return orderRepository.findOrdersByPriceRange(minPrice, maxPrice);
-        }
+        List<Order> orders = (status != null) ?
+                orderRepository.findOrdersByStatusAndPriceRange(status, minPrice, maxPrice) :
+                orderRepository.findOrdersByPriceRange(minPrice, maxPrice);
+
+        log.info("Found {} orders", orders.size());
+        return orders;
     }
 
+
     public Order getOrderById(Long orderId) {
-        // 1. Находим заказ
+        log.info("Fetching order with ID: {}", orderId);
+
         Order order = orderRepository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found with ID: " + orderId));
+                .orElseThrow(() -> {
+                    log.error("Order not found with ID: {}", orderId);
+                    return new RuntimeException("Order not found with ID: " + orderId);
+                });
 
-        // 2. Извлекаем токен из заголовка Authorization
         String jwtToken = getJwtToken();
-
-        // 3. Извлекаем роли из токена
         List<String> roles = getRolesFromToken(jwtToken);
 
-        // 4. Если у пользователя нет роли ADMIN, сверяем firstname владельца заказа
         if (!roles.contains("ROLE_ADMIN")) {
-            // Получаем firstname из токена
             String currentFirstname = getFirstnameFromToken(jwtToken);
+            log.info("Checking access for user: {}", currentFirstname);
 
-            // Сравниваем с полем firstname в заказе
             if (!Objects.equals(order.getCustomerName(), currentFirstname)) {
+                log.warn("Access denied for user: {} on order ID: {}", currentFirstname, orderId);
                 throw new RuntimeException("Access denied: not your order");
             }
         }
 
+        log.info("Order with ID: {} fetched successfully", orderId);
         return order;
     }
+
 
     private String getFirstnameFromToken(String jwtToken) {
         Claims claims = Jwts.parserBuilder()
@@ -90,58 +100,114 @@ public class OrderService {
 
     @Transactional
     public Order createOrder(Order order, String firstname) {
+        log.info("Creating order for user: {}", firstname);
+
         String jwtToken = getJwtToken();
         List<String> roles = getRolesFromToken(jwtToken);
 
-        // Только пользователь или администратор может создавать заказы
         if (!roles.contains("ROLE_USER") && !roles.contains("ROLE_ADMIN")) {
+            log.warn("Access denied. Only users or admins can create orders.");
             throw new RuntimeException("Access denied. Only users or admins can create orders.");
         }
 
         UserDTO userDTO = getUserByFirstname(firstname);
         order.setCustomerName(userDTO.getFirstname());
+        Order savedOrder = orderRepository.save(order);
 
-        return orderRepository.save(order);
+        log.info("Order created successfully with ID: {}", savedOrder.getOrderId());
+
+        // Добавляем запись в таблицу логов
+        logService.logAction(
+                "CREATE_ORDER",
+                "Order created with ID: " + savedOrder.getOrderId(),
+                userDTO.getFirstname()
+        );
+
+        return savedOrder;
     }
 
     @Transactional
     public Order updateOrder(Long orderId, Order updatedOrder, String firstname) {
+        log.info("Updating order with ID: {} for user: {}", orderId, firstname);
+
+        // 1. Извлекаем токен и роли пользователя
         String jwtToken = getJwtToken();
         List<String> roles = getRolesFromToken(jwtToken);
 
-        // Только пользователь может обновлять свои заказы
+        // 2. Находим существующий заказ
         Order existingOrder = orderRepository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+                .orElseThrow(() -> {
+                    log.error("Order not found with ID: {}", orderId);
+                    return new RuntimeException("Order not found");
+                });
 
-        if (!roles.contains("ROLE_ADMIN") && !existingOrder.getCustomerName().equals(getUsernameFromToken(jwtToken))) {
-            throw new RuntimeException("Access denied. Only admins or order owners can update this order.");
+        // 3. Проверяем, имеет ли пользователь права обновлять заказ
+        if (!roles.contains("ROLE_ADMIN")) {
+            String currentFirstname = getFirstnameFromToken(jwtToken);
+            log.info("Checking access for user: {}", currentFirstname);
+
+            // Проверяем, является ли пользователь владельцем заказа
+            if (!Objects.equals(existingOrder.getCustomerName(), currentFirstname)) {
+                log.warn("Access denied for user: {} on order ID: {}", currentFirstname, orderId);
+                throw new RuntimeException("Access denied: not your order");
+            }
         }
 
-        UserDTO userDTO = getUserByFirstname(firstname);
-        existingOrder.setCustomerName(userDTO.getFirstname());
+        // 4. Обновляем данные заказа
+        log.info("Updating order with new data: {}", updatedOrder);
         existingOrder.setStatus(updatedOrder.getStatus());
         existingOrder.setProducts(updatedOrder.getProducts());
         existingOrder.setTotalPrice(updatedOrder.getTotalPrice());
 
-        return orderRepository.save(existingOrder);
+        // Если обновление имени владельца разрешено
+        UserDTO userDTO = getUserByFirstname(firstname);
+        existingOrder.setCustomerName(userDTO.getFirstname());
+
+        // 5. Сохраняем обновленный заказ
+        Order savedOrder = orderRepository.save(existingOrder);
+        log.info("Order with ID: {} updated successfully", savedOrder.getOrderId());
+
+        // 6. Логируем операцию в базу данных
+        logService.logAction(
+                "UPDATE_ORDER",
+                "Order updated with ID: " + savedOrder.getOrderId(),
+                getFirstnameFromToken(jwtToken)
+        );
+
+        return savedOrder;
     }
 
     @Transactional
     public void deleteOrder(Long orderId) {
+        log.info("Deleting order with ID: {}", orderId);
+
         String jwtToken = getJwtToken();
         List<String> roles = getRolesFromToken(jwtToken);
 
-        // Только администратор может удалять заказы
         if (!roles.contains("ROLE_ADMIN")) {
+            log.warn("Access denied. User does not have permission to delete order with ID: {}", orderId);
             throw new RuntimeException("Access denied. Only admins can delete orders.");
         }
 
         Order order = orderRepository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+                .orElseThrow(() -> {
+                    log.error("Order not found with ID: {}", orderId);
+                    return new RuntimeException("Order not found");
+                });
 
         order.setDeleted(true);
         orderRepository.save(order);
+
+        log.info("Order with ID: {} deleted successfully", orderId);
+
+        // Добавляем запись в таблицу логов
+        logService.logAction(
+                "DELETE_ORDER",
+                "Order deleted with ID: " + orderId,
+                getUsernameFromToken(jwtToken)
+        );
     }
+
 
     private UserDTO getUserByFirstname(String firstname) {
         String url = USER_SERVICE_URL + "/firstname/{firstname}";

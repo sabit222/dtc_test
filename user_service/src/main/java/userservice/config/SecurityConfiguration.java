@@ -40,7 +40,8 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**").permitAll() // Доступ к эндпоинтам авторизации без аутентификации
+                        .requestMatchers("/api/v1/auth/**").permitAll()// Доступ к эндпоинтам авторизации без аутентификации
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/orders/**").hasAnyAuthority("user:read", "ROLE_ADMIN") // Просмотр заказов
                         .requestMatchers(HttpMethod.POST, "/api/orders/**").hasAnyAuthority("user:create", "ROLE_ADMIN","ROLE_USER") // Создание заказов
                         .requestMatchers(HttpMethod.PUT, "/api/orders/**").hasAnyAuthority("user:update", "ROLE_ADMIN") // Обновление заказов

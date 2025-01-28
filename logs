@@ -1,0 +1,28 @@
+2025-01-27T17:29:53.397+05:00  INFO 22488 --- [main] order_service.OrderApplication           : Starting OrderApplication using Java 17.0.10 with PID 22488 (C:\Users\SabitRakhimov\dtc_testproject\ord_service\target\classes started by SabitRakhimov in C:\Users\SabitRakhimov\dtc_testproject)
+2025-01-27T17:29:53.398+05:00 DEBUG 22488 --- [main] order_service.OrderApplication           : Running with Spring Boot v3.3.0, Spring v6.1.8
+2025-01-27T17:29:53.400+05:00  INFO 22488 --- [main] order_service.OrderApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-01-27T17:29:53.923+05:00  INFO 22488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-27T17:29:53.974+05:00  INFO 22488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 3 JPA repository interfaces.
+2025-01-27T17:29:54.293+05:00  INFO 22488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-01-27T17:29:54.294+05:00  INFO 22488 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-27T17:29:54.300+05:00  INFO 22488 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2025-01-27T17:29:54.334+05:00  INFO 22488 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-27T17:29:54.334+05:00  INFO 22488 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 839 ms
+2025-01-27T17:29:54.424+05:00  INFO 22488 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-27T17:29:54.447+05:00  INFO 22488 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2025-01-27T17:29:54.463+05:00  INFO 22488 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-27T17:29:54.595+05:00  INFO 22488 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-27T17:29:54.604+05:00  INFO 22488 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-27T17:29:54.687+05:00  INFO 22488 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7574d4ad
+2025-01-27T17:29:54.687+05:00  INFO 22488 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-27T17:29:55.187+05:00  INFO 22488 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-27T17:29:55.238+05:00  INFO 22488 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-27T17:29:55.364+05:00  INFO 22488 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-01-27T17:29:55.596+05:00  WARN 22488 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-27T17:29:55.788+05:00  INFO 22488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-01-27T17:29:55.796+05:00  INFO 22488 --- [main] order_service.OrderApplication           : Started OrderApplication in 2.791 seconds (process running for 3.205)
+2025-01-27T17:30:29.684+05:00  INFO 22488 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-27T17:30:29.684+05:00  INFO 22488 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-27T17:30:29.684+05:00  INFO 22488 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-01-27T17:30:29.795+05:00  INFO 22488 --- [http-nio-8082-exec-1] order_service.service.OrderService       : Creating order for user: John
+2025-01-27T17:30:29.960+05:00  INFO 22488 --- [http-nio-8082-exec-1] order_service.service.OrderService       : Order created successfully with ID: 35

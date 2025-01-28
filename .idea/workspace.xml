@@ -5,56 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded6c2be-d0ce-41ec-a7de-521c47f1401a" name="Default Changelist" comment="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access.">
-      <change afterPath="$PROJECT_DIR$/ord_service/ord_service.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/OrderApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/dto/OrderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/dto/ProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/model/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/model/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/repository/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_annotations_jakarta_2_2_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_core_jakarta_2_2_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_models_jakarta_2_2_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_14_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_starter_common_2_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_starter_webmvc_api_2_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_starter_webmvc_ui_2_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_swagger_ui_4_18_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/config/OpenApiConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/log/LogEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/log/LogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/log/LogService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/56ba6d30-5b33-406c-8dc0-a940031f0bdc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56ba6d30-5b33-406c-8dc0-a940031f0bdc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_service/order_service.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/ord_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/ord_service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/src/main/java/order_service/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/src/main/java/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/target/classes/order_service/controller/OrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/target/classes/order_service/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/token/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/token/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/config/JwtAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/config/JwtService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/config/SecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/token/Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/token/Token.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/user/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/user/Permission.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/user/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/user/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/user/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/user/User$UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/user/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/user/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/user_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/user_service.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +125,7 @@
       <recent name="orderservice.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="OrderApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="oreder_sevice.OrderApplication" />
       <module name="order_service" />
@@ -155,6 +135,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -242,7 +235,8 @@
       <workItem from="1737609747646" duration="16302000" />
       <workItem from="1737693391762" duration="16172000" />
       <workItem from="1737719449703" duration="3508000" />
-      <workItem from="1737956690699" duration="9954000" />
+      <workItem from="1737956690699" duration="17476000" />
+      <workItem from="1738048843595" duration="4019000" />
     </task>
     <task id="LOCAL-00004" summary="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access.">
       <created>1737362973050</created>
@@ -258,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1737363226106</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access.">
+      <created>1737976476244</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737976476244</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
