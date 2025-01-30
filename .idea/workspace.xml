@@ -4,37 +4,77 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded6c2be-d0ce-41ec-a7de-521c47f1401a" name="Default Changelist" comment="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_17_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_annotations_jakarta_2_2_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_core_jakarta_2_2_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_models_jakarta_2_2_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_14_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_starter_common_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_starter_webmvc_api_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_starter_webmvc_ui_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_swagger_ui_4_18_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/config/OpenApiConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/log/LogEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/log/LogRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/log/LogService.java" afterDir="false" />
+    <list default="true" id="ded6c2be-d0ce-41ec-a7de-521c47f1401a" name="Default Changelist" comment="Документация API через Swagger/OpenAPI.&#10;Логирование действий пользователей в базу данных.">
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.8/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_14_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_2_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_25_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_awaitility_awaitility_4_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_5_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_5_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ord_service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ord_service/logs/application.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ord_service/src/test/java/order_service/service/OrderServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/56ba6d30-5b33-406c-8dc0-a940031f0bdc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56ba6d30-5b33-406c-8dc0-a940031f0bdc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ord_service/ord_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/ord_service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ord_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ord_service/src/main/java/order_service/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/src/main/java/order_service/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/src/main/java/order_service/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/dto/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ord_service/src/main/java/order_service/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/java/order_service/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ord_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/target/classes/order_service/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ord_service/target/classes/order_service/service/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/auth/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/userservice/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/config/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/config/SecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/user_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/user_service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/OrderApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/config/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/controller/OrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/controller/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/dto/OrderDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/dto/ProductDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/dto/UserDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/log/LogEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/log/LogRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/log/LogService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/model/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/model/Permission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/model/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/model/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/repository/OrderRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/repository/ProductRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/service/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ord_service/target/classes/order_service/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/target/classes/userservice/auth/AuthenticationController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,42 +165,69 @@
       <recent name="orderservice.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserApplication">
-    <configuration name="OrderApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="oreder_sevice.OrderApplication" />
-      <module name="order_service" />
+  <component name="RunManager" selected="Docker.docker-compose.yml.postgres_db: Compose Deployment">
+    <configuration name="C:/Users/SabitRakhimov/dtc_testproject" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ord_service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="oreder_sevice.*" />
+          <option name="PATTERN" value="order_service.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="order_service.service" />
+      <option name="MAIN_CLASS_NAME" value="order_service.service.OrderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+    <configuration name="OrderServiceTest.testCreateOrder_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ord_service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="order_service.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="order_service.service" />
+      <option name="MAIN_CLASS_NAME" value="order_service.service.OrderServiceTest" />
+      <option name="METHOD_NAME" value="testCreateOrder_Success" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="dtc_testproject" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="dtc_testproject" />
-      <option name="filePath" />
+    <configuration name="OrderServiceTest.testGetOrderById_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ord_service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="order_service.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="order_service.service" />
+      <option name="MAIN_CLASS_NAME" value="order_service.service.OrderServiceTest" />
+      <option name="METHOD_NAME" value="testGetOrderById_Success" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,14 +248,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="docker-compose.yml.postgres_db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="postgres_db" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.OrderApplication" />
+      <item itemvalue="Gradle.C:/Users/SabitRakhimov/dtc_testproject" />
+      <item itemvalue="JUnit.OrderServiceTest" />
+      <item itemvalue="JUnit.OrderServiceTest.testCreateOrder_Success" />
+      <item itemvalue="JUnit.OrderServiceTest.testGetOrderById_Success" />
       <item itemvalue="Spring Boot.UserApplication" />
       <item itemvalue="Spring Boot.OrderApplication" />
+      <item itemvalue="Docker.docker-compose.yml.postgres_db: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OrderApplication" />
+        <item itemvalue="Docker.docker-compose.yml.postgres_db: Compose Deployment" />
+        <item itemvalue="Gradle.C:/Users/SabitRakhimov/dtc_testproject" />
+        <item itemvalue="JUnit.OrderServiceTest" />
+        <item itemvalue="JUnit.OrderServiceTest.testCreateOrder_Success" />
+        <item itemvalue="JUnit.OrderServiceTest.testGetOrderById_Success" />
       </list>
     </recent_temporary>
   </component>
@@ -236,7 +324,15 @@
       <workItem from="1737693391762" duration="16172000" />
       <workItem from="1737719449703" duration="3508000" />
       <workItem from="1737956690699" duration="17476000" />
-      <workItem from="1738048843595" duration="4019000" />
+      <workItem from="1738048843595" duration="10558000" />
+      <workItem from="1738135481005" duration="625000" />
+      <workItem from="1738138085263" duration="5924000" />
+      <workItem from="1738147379169" duration="449000" />
+      <workItem from="1738147879466" duration="93000" />
+      <workItem from="1738148152290" duration="4956000" />
+      <workItem from="1738213959551" duration="87000" />
+      <workItem from="1738214150172" duration="8482000" />
+      <workItem from="1738225456841" duration="3548000" />
     </task>
     <task id="LOCAL-00004" summary="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access.">
       <created>1737362973050</created>
@@ -259,7 +355,21 @@
       <option name="project" value="LOCAL" />
       <updated>1737976476244</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Документация API через Swagger/OpenAPI.&#10;Логирование действий пользователей в базу данных.">
+      <created>1738056852195</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738056852195</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Документация API через Swagger/OpenAPI.&#10;Логирование действий пользователей в базу данных.">
+      <created>1738056896114</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738056896114</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +391,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Building a microservice structure and creating order entities" />
     <MESSAGE value="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement ProductService with external UserService integration&#10;&#10;- Integrated ProductService with external UserService to fetch user data for access control.&#10;- Used RestTemplate to make API calls to the authentication service and retrieve user role and username.&#10;- Added role-based access control (USER and ADMIN) for creating, updating, and deleting products in orders.&#10;- Ensured that users can only manage their own orders and products, while admins have full access." />
+    <MESSAGE value="Документация API через Swagger/OpenAPI.&#10;Логирование действий пользователей в базу данных." />
+    <option name="LAST_COMMIT_MESSAGE" value="Документация API через Swagger/OpenAPI.&#10;Логирование действий пользователей в базу данных." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

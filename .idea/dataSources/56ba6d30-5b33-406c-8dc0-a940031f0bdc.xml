@@ -1393,7 +1393,7 @@ false posix/WET
 false posix/Zulu
 false posixrules
 </TimeZones>
-      <StartupTime>1737614667</StartupTime>
+      <StartupTime>1737963158</StartupTime>
     </root>
     <database id="2" parent="1" name="db_application">
       <ObjectId>16384</ObjectId>
@@ -1411,10 +1411,11 @@ false posixrules
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
       <Owner>sabacode</Owner>
-      <IntrospectionStateNumber>1691</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1845</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|33249|33250|1
 sequence|table|33258|33259|1
+sequence|table|33282|33283|1
 </Relations>
     </database>
     <database id="4" parent="1" name="postgres">
@@ -1625,76 +1626,87 @@ sequence|table|33258|33259|1
       <SequenceIdentity>null+50</SequenceIdentity>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="41" parent="25" name="orders_order_id_seq">
+    <sequence id="41" parent="25" name="logs_id_seq">
+      <ObjectId>33282</ObjectId>
+      <Owner>sabacode</Owner>
+      <StateNumber>1840</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <sequence id="42" parent="25" name="orders_order_id_seq">
       <ObjectId>33249</ObjectId>
       <Owner>sabacode</Owner>
       <StateNumber>1591</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="42" parent="25" name="products_product_id_seq">
+    <sequence id="43" parent="25" name="products_product_id_seq">
       <ObjectId>33258</ObjectId>
       <Owner>sabacode</Owner>
       <StateNumber>1592</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <table id="43" parent="25" name="_user">
+    <table id="44" parent="25" name="_user">
       <ObjectId>33224</ObjectId>
       <Owner>sabacode</Owner>
       <StateNumber>1571</StateNumber>
     </table>
-    <table id="44" parent="25" name="orders">
+    <table id="45" parent="25" name="logs">
+      <ObjectId>33283</ObjectId>
+      <Owner>sabacode</Owner>
+      <StateNumber>1840</StateNumber>
+    </table>
+    <table id="46" parent="25" name="orders">
       <ObjectId>33250</ObjectId>
       <Owner>sabacode</Owner>
       <StateNumber>1593</StateNumber>
     </table>
-    <table id="45" parent="25" name="products">
+    <table id="47" parent="25" name="products">
       <ObjectId>33259</ObjectId>
       <Owner>sabacode</Owner>
       <StateNumber>1593</StateNumber>
     </table>
-    <table id="46" parent="25" name="token">
+    <table id="48" parent="25" name="token">
       <ObjectId>33269</ObjectId>
       <Owner>sabacode</Owner>
       <StateNumber>1689</StateNumber>
     </table>
-    <column id="47" parent="43" name="id">
+    <column id="49" parent="44" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1565</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="48" parent="43" name="email">
+    <column id="50" parent="44" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="49" parent="43" name="firstname">
+    <column id="51" parent="44" name="firstname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="50" parent="43" name="lastname">
+    <column id="52" parent="44" name="lastname">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="51" parent="43" name="password">
+    <column id="53" parent="44" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="52" parent="43" name="role">
+    <column id="54" parent="44" name="role">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1565</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="53" parent="43" name="_user_pkey">
+    <index id="55" parent="44" name="_user_pkey">
       <ObjectId>33230</ObjectId>
       <StateNumber>1565</StateNumber>
       <ColNames>id</ColNames>
@@ -1704,20 +1716,69 @@ sequence|table|33258|33259|1
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="54" parent="43" name="_user_pkey">
+    <key id="56" parent="44" name="_user_pkey">
       <ObjectId>33231</ObjectId>
       <StateNumber>1565</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>_user_pkey</UnderlyingIndexName>
     </key>
-    <check id="55" parent="43" name="_user_role_check">
+    <check id="57" parent="44" name="_user_role_check">
       <ObjectId>33227</ObjectId>
       <StateNumber>1565</StateNumber>
       <ColNames>role</ColNames>
       <Predicate>(role)::text = ANY ((ARRAY[&apos;USER&apos;::character varying, &apos;ADMIN&apos;::character varying, &apos;MANAGER&apos;::character varying])::text[])</Predicate>
     </check>
-    <column id="56" parent="44" name="order_id">
+    <column id="58" parent="45" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1840</StateNumber>
+      <TypeId>20</TypeId>
+      <IdentityKind>by-default</IdentityKind>
+    </column>
+    <column id="59" parent="45" name="action">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1840</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="60" parent="45" name="details">
+      <Position>3</Position>
+      <DataType>oid|0s</DataType>
+      <StateNumber>1840</StateNumber>
+      <TypeId>26</TypeId>
+    </column>
+    <column id="61" parent="45" name="timestamp">
+      <Position>4</Position>
+      <DataType>timestamp(6)|0s</DataType>
+      <StateNumber>1840</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="62" parent="45" name="username">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1840</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="63" parent="45" name="logs_pkey">
+      <ObjectId>33288</ObjectId>
+      <StateNumber>1840</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>3124</ClassIds>
+    </index>
+    <key id="64" parent="45" name="logs_pkey">
+      <ObjectId>33289</ObjectId>
+      <StateNumber>1840</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>logs_pkey</UnderlyingIndexName>
+    </key>
+    <column id="65" parent="46" name="order_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1725,35 +1786,35 @@ sequence|table|33258|33259|1
       <TypeId>20</TypeId>
       <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="57" parent="44" name="customer_name">
+    <column id="66" parent="46" name="customer_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1591</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="58" parent="44" name="is_deleted">
+    <column id="67" parent="46" name="is_deleted">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1591</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="59" parent="44" name="status">
+    <column id="68" parent="46" name="status">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1591</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="44" name="total_price">
+    <column id="69" parent="46" name="total_price">
       <Position>5</Position>
       <DataType>numeric(38,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1591</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="61" parent="44" name="orders_pkey">
+    <index id="70" parent="46" name="orders_pkey">
       <ObjectId>33256</ObjectId>
       <StateNumber>1591</StateNumber>
       <ColNames>order_id</ColNames>
@@ -1763,20 +1824,20 @@ sequence|table|33258|33259|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="62" parent="44" name="orders_pkey">
+    <key id="71" parent="46" name="orders_pkey">
       <ObjectId>33257</ObjectId>
       <StateNumber>1591</StateNumber>
       <ColNames>order_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>orders_pkey</UnderlyingIndexName>
     </key>
-    <check id="63" parent="44" name="orders_status_check">
+    <check id="72" parent="46" name="orders_status_check">
       <ObjectId>33253</ObjectId>
       <StateNumber>1591</StateNumber>
       <ColNames>status</ColNames>
       <Predicate>(status)::text = ANY ((ARRAY[&apos;PENDING&apos;::character varying, &apos;CONFIRMED&apos;::character varying, &apos;CANCELLED&apos;::character varying])::text[])</Predicate>
     </check>
-    <column id="64" parent="45" name="product_id">
+    <column id="73" parent="47" name="product_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1784,34 +1845,34 @@ sequence|table|33258|33259|1
       <TypeId>20</TypeId>
       <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="65" parent="45" name="name">
+    <column id="74" parent="47" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1592</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="66" parent="45" name="price">
+    <column id="75" parent="47" name="price">
       <Position>3</Position>
       <DataType>numeric(38,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1592</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="67" parent="45" name="quantity">
+    <column id="76" parent="47" name="quantity">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1592</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="68" parent="45" name="order_id">
+    <column id="77" parent="47" name="order_id">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1592</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="69" parent="45" name="products_pkey">
+    <index id="78" parent="47" name="products_pkey">
       <ObjectId>33262</ObjectId>
       <StateNumber>1592</StateNumber>
       <ColNames>product_id</ColNames>
@@ -1821,14 +1882,14 @@ sequence|table|33258|33259|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="70" parent="45" name="products_pkey">
+    <key id="79" parent="47" name="products_pkey">
       <ObjectId>33263</ObjectId>
       <StateNumber>1592</StateNumber>
       <ColNames>product_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>products_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="71" parent="45" name="fkr3aftk48ylvntpui7l04kbcc1">
+    <foreign-key id="80" parent="47" name="fkr3aftk48ylvntpui7l04kbcc1">
       <ObjectId>33264</ObjectId>
       <StateNumber>1593</StateNumber>
       <ColNames>order_id</ColNames>
@@ -1838,47 +1899,47 @@ sequence|table|33258|33259|1
       <RefKeyName>orders_pkey</RefKeyName>
       <RefColNames>order_id</RefColNames>
     </foreign-key>
-    <column id="72" parent="46" name="id">
+    <column id="81" parent="48" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1688</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="73" parent="46" name="expired">
+    <column id="82" parent="48" name="expired">
       <Position>2</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1688</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="74" parent="46" name="revoked">
+    <column id="83" parent="48" name="revoked">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1688</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="75" parent="46" name="token">
+    <column id="84" parent="48" name="token">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1688</StateNumber>
+      <StateNumber>1841</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="76" parent="46" name="token_type">
+    <column id="85" parent="48" name="token_type">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1688</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="77" parent="46" name="user_id">
+    <column id="86" parent="48" name="user_id">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1688</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="78" parent="46" name="token_pkey">
+    <index id="87" parent="48" name="token_pkey">
       <ObjectId>33275</ObjectId>
       <StateNumber>1688</StateNumber>
       <ColNames>id</ColNames>
@@ -1888,14 +1949,14 @@ sequence|table|33258|33259|1
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="79" parent="46" name="token_pkey">
+    <key id="88" parent="48" name="token_pkey">
       <ObjectId>33276</ObjectId>
       <StateNumber>1688</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>token_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="80" parent="46" name="fkiblu4cjwvyntq3ugo31klp1c6">
+    <foreign-key id="89" parent="48" name="fkiblu4cjwvyntq3ugo31klp1c6">
       <ObjectId>33277</ObjectId>
       <StateNumber>1689</StateNumber>
       <ColNames>user_id</ColNames>
@@ -1905,7 +1966,7 @@ sequence|table|33258|33259|1
       <RefKeyName>_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="81" parent="46" name="token_token_type_check">
+    <check id="90" parent="48" name="token_token_type_check">
       <ObjectId>33272</ObjectId>
       <StateNumber>1688</StateNumber>
       <ColNames>token_type</ColNames>

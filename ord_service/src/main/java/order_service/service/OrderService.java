@@ -15,7 +15,7 @@ import order_service.repository.OrderRepository;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.*;
 
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -25,7 +25,6 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,11 +33,12 @@ import java.util.stream.Collectors;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+
     private final RestTemplate restTemplate;
     private final HttpServletRequest request;
     private final LogService logService;
 
-    private static final String USER_SERVICE_URL = "http://localhost:8081/users";
+    private static final String USER_SERVICE_URL = "http://host.docker.internal:8081/users";
 
     @Cacheable(value = "orders", key = "#status + #minPrice + #maxPrice")
     public List<Order> getOrders(Status status, BigDecimal minPrice, BigDecimal maxPrice) {
@@ -88,7 +88,7 @@ public class OrderService {
     }
 
 
-    private String getFirstnameFromToken(String jwtToken) {
+    public String getFirstnameFromToken(String jwtToken) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(Decoders.BASE64.decode("404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970"))
                 .build()
@@ -209,7 +209,7 @@ public class OrderService {
     }
 
 
-    private UserDTO getUserByFirstname(String firstname) {
+    public UserDTO getUserByFirstname(String firstname) {
         String url = USER_SERVICE_URL + "/firstname/{firstname}";
         String jwtToken = getJwtToken();
         HttpHeaders headers = new HttpHeaders();
@@ -233,16 +233,26 @@ public class OrderService {
             throw new RuntimeException("Failed to fetch user: " + e.getMessage(), e);
         }
     }
-
-    private String getJwtToken() {
+    String getJwtToken() {
         String authHeader = request.getHeader("Authorization");
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            return authHeader.substring(7);
+
+        log.info("Received Authorization header: {}", authHeader); // Логируем заголовок
+
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            throw new RuntimeException("JWT token is missing or invalid.");
         }
-        throw new RuntimeException("JWT token not found in Authorization header");
+
+        String token = authHeader.substring(7); // Убираем "Bearer "
+
+        if (!token.contains(".")) {
+            throw new RuntimeException("Malformed JWT token: " + token);
+        }
+
+        return token;
     }
 
-    private List<String> getRolesFromToken(String jwtToken) {
+
+    public List<String> getRolesFromToken(String jwtToken) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(Decoders.BASE64.decode("404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970"))
                 .build()

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: db_dtc
+      POSTGRES_USER: sabacode
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    networks:
+      - app_network
+
+  user_service:
+    container_name: user_service
+    build: ./user_service
+    hostname: user_service
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/db_dtc
+      - SPRING_DATASOURCE_USERNAME=sabacode
+      - SPRING_DATASOURCE_PASSWORD=password
+    ports:
+      - "8081:8081"
+    networks:
+      - app_network
+
+  ord_service:
+    container_name: ord_service
+    build: ./ord_service
+    depends_on:
+      - user_service
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/db_dtc
+      - SPRING_DATASOURCE_USERNAME=sabacode
+      - SPRING_DATASOURCE_PASSWORD=password
+      - USER_SERVICE_URL=http://user_service:8081
+    ports:
+      - "8082:8082"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
